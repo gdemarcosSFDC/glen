@@ -1,0 +1,47 @@
+{
+  "name": "glen",
+  "description": "my personal plugin with tools",
+  "version": "0.0.0",
+  "author": "Glen de Marcos",
+  "bugs": "https://github.com/https://github.com/gdemarcosSFDC/glen/https://github.com/gdemarcosSFDC/glen/issues",
+  "dependencies": {
+    "rimraf": "^3.0.2",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/lib",
+    "/messages",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/https://github.com/gdemarcosSFDC/glen/https://github.com/gdemarcosSFDC/glen",
+  "keywords": [
+    "sfdx-plugin"
+  ],
+  "license": "MIT",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "sfdx",
+    "topics": {
+      "whoami": {
+        "description": "Command to self inspect."
+      }
+    },
+    "devPlugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "https://github.com/gdemarcosSFDC/glen",
+  "scripts": {
+    "postpack": "rimraf oclif.manifest.json",
+    "posttest": "tslint -p test -t stylish",
+    "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
